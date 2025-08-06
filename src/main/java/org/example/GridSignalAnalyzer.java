@@ -1,23 +1,30 @@
 package org.example;
 
 public class GridSignalAnalyzer {
+
+    char[][] scrambledGrid = {
+            {'C', 'H', 'A', 'R', 'L', 'I', 'E'},
+            {'A', 'L', 'P', 'H', 'A'},
+            {'T', 'A', 'N', 'G', 'O', '7'},
+            {'B', 'R', 'A', 'V', 'O'}
+    };
+
     public static void main(String[] args) {
-        char[][] scrambledGrid = {
-                {'C', 'H', 'A', 'R', 'L', 'I', 'E'},
-                {'A', 'L', 'P', 'H', 'A'},
-                {'T', 'A', 'N', 'G', 'O', '7'},
-                {'B', 'R', 'A', 'V', 'O'}
-        };
+        GridSignalAnalyzer analyzer = new GridSignalAnalyzer();
+
         System.out.println("\n--- PHASE 2: STANDARD FOR-LOOP MANEUVER ---");
-        analyzeWithForLoop(scrambledGrid); //phase2
+        analyzeWithForLoop(analyzer.scrambledGrid); //phase2
+//        analyzeWithForLoop(scrambledGrid); //phase2
         System.out.println("\n--- PHASE 3: ADVANCED FOR-EACH SWEEP ---");
-        analyzeWithForEachLoop(scrambledGrid); //phase3
+        analyzeWithForEachLoop(analyzer.scrambledGrid);
+//        analyzeWithForEachLoop(scrambledGrid); //phase3
         System.out.println("\n--- PHASE 4: HYBRID LOOP APPROACH ---");
-        analyzeWithHybridLoop(scrambledGrid); //phase4
+        analyzeWithHybridLoop(analyzer.scrambledGrid);
+//        analyzeWithHybridLoop(scrambledGrid); //phase4
 
     }
 
-    private static void analyzeWithForLoop(char[][] scrambleGrid){
+    public static void analyzeWithForLoop(char[][] scrambleGrid){
         for(int i=0; i< scrambleGrid.length;i++){
             for(int j=0; j<scrambleGrid[i].length;j++){
                 System.out.print(scrambleGrid[i][j] + " ");
@@ -26,7 +33,7 @@ public class GridSignalAnalyzer {
         }
     }
 
-    private static void analyzeWithForEachLoop(char[][] scrambleGrid){
+    public static void analyzeWithForEachLoop(char[][] scrambleGrid){
         for(char[] row: scrambleGrid){
             System.out.println("Processing with Row with Hash: " + row);
             for(char val : row){
